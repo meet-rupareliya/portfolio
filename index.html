@@ -221,52 +221,191 @@ html[data-theme="light"] .h-bg-num{color:rgba(0,0,0,.022);}
 .ab-ed-s{font-size:11.5px;color:var(--mu);font-family:'JetBrains Mono',monospace;}
 .ab-ed-yr{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ac);border:1px solid var(--ba);padding:2px 8px;border-radius:2px;flex-shrink:0;align-self:flex-start;background:rgba(200,255,0,.04);}
 
+/* Education Detail Cards */
+.edu-cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:900px){.edu-cards-grid{grid-template-columns:1fr;}}
+.edu-card{border:1px solid var(--bw);border-radius:6px;padding:28px;background:var(--sf);transition:var(--tr);position:relative;overflow:hidden;}
+.edu-card:hover{border-color:var(--ac);transform:translate(-4px,-4px);box-shadow:5px 5px 0 var(--ba);}
+.edu-card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;}
+.edu-card-title{font-size:20px;font-weight:900;letter-spacing:-.03em;line-height:1.15;}
+.edu-cgpa-badge{display:inline-flex;align-items:center;padding:5px 12px;background:var(--ac);color:#070707;border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;white-space:nowrap;flex-shrink:0;}
+.edu-pct-badge{display:inline-flex;align-items:center;padding:5px 12px;border:1px solid var(--ba);color:var(--ac);border-radius:99px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;white-space:nowrap;flex-shrink:0;background:rgba(200,255,0,.06);}
+.edu-meta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--bw);}
+.edu-meta-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--tx2);}
+.edu-meta-item svg{width:12px;height:12px;color:var(--mu);flex-shrink:0;}
+.edu-subject{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--ac);margin-bottom:12px;letter-spacing:-.01em;}
+.edu-subject svg{width:14px;height:14px;flex-shrink:0;}
+.edu-bullets{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.edu-bullets li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--tx2);line-height:1.5;}
+.edu-bullets li::before{content:'•';color:var(--ac);font-size:16px;line-height:1;flex-shrink:0;margin-top:1px;}
+.edu-cw-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--tx);margin-bottom:10px;}
+.edu-cw-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;}
+.edu-cw-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--tx2);}
+.edu-cw-item svg{width:11px;height:11px;color:var(--ac);flex-shrink:0;}
+
+/* Centered Section Header */
+.sh-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 56px;
+  gap: 12px;
+}
+.sh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border: 1px solid var(--bw);
+  background: var(--sf);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--tx2);
+  border-radius: 99px;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+.sh-title-large {
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 900;
+  letter-spacing: -.03em;
+  color: var(--tx);
+  margin-top: 4px;
+}
+.sh-subtitle-desc {
+  font-size: 14px;
+  color: var(--mu);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
 /* ═══════════════════════════════════════════════════
    SKILLS MATRIX
 ═══════════════════════════════════════════════════ */
 #skills{}
-.sk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-@media(max-width:720px){.sk-grid{grid-template-columns:1fr;}}
-.sk-card{border:1px solid var(--bw);padding:24px;border-radius:2px;background:var(--sf);transition:var(--tr);}
+.sk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(max-width:768px){
+  .sk-grid{grid-template-columns:1fr;}
+  .sk-card[style*="grid-column: span 2"] {
+    grid-column: span 1 !important;
+  }
+}
+.sk-card{border:1px solid var(--bw);padding:28px;border-radius:8px;background:var(--sf);transition:var(--tr);}
 .sk-card:hover{border-color:var(--ac);transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--ba);}
-.sk-card-title{font-size:15px;font-weight:800;letter-spacing:-.01em;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-.sk-card-dot{width:6px;height:6px;border-radius:50%;background:var(--ac);}
-.sk-card-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.sk-card-title{font-size:16px;font-weight:800;letter-spacing:-.01em;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.sk-card-title svg{width:18px;height:18px;color:var(--ac);flex-shrink:0;}
+.sk-card-pills{display:flex;flex-wrap:wrap;gap:8px;border-top:1px solid var(--bw);padding-top:18px;}
+.sk-card-pills .tag{border-radius:99px;padding:6px 16px;font-size:12px;font-weight:500;background:var(--sf2);border:1px solid var(--bw);transition:var(--tr);color:var(--tx2);cursor:default;}
+.sk-card-pills .tag:hover{border-color:var(--ac);color:var(--ac);background:rgba(200,255,0,.03);transform:translateY(-1px);}
+.sk-card-pills .tag.a{border-color:var(--ba);color:var(--ac);background:rgba(200,255,0,.06);}
+.sk-card-pills .tag.r{border-color:rgba(255,62,62,.3);color:var(--red);background:rgba(255,62,62,.06);}
 
 /* ═══════════════════════════════════════════════════
    STATS & CREDENTIALS
 ═══════════════════════════════════════════════════ */
 #stats{background:var(--bg2);}
-.st-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:24px;}
-@media(max-width:900px){.st-grid{grid-template-columns:1fr;}}
-
-/* Stats Left Column (Coding Stats) */
-.st-left{display:flex;flex-direction:column;gap:14px;}
-.st-profile-card{
-  border:1px solid var(--bw);border-radius:2px;padding:24px;background:var(--sf);
-  transition:var(--tr);position:relative;overflow:hidden;
+.st-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
 }
-.st-profile-card:hover{border-color:var(--ac);transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--ba);}
-.st-card-badge{
-  display:inline-flex;align-items:center;gap:4px;float:right;padding:3px 9px;
-  border:1px solid rgba(74,222,128,.35);background:rgba(74,222,128,.08);border-radius:99px;
-  font-size:10px;font-weight:700;color:#4ADE80;text-transform:uppercase;letter-spacing:.08em;
+.st-card {
+  flex: 1 1 calc(33.333% - 24px);
+  min-width: 290px;
+  max-width: 350px;
+  border: 1px solid var(--bw);
+  border-radius: 8px;
+  padding: 28px;
+  background: var(--sf);
+  transition: var(--tr);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
-.st-card-badge::before{content:'✓ ';}
-.st-profile-title{font-size:20px;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;}
-.st-profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-.st-stat-box{display:flex;flex-direction:column;gap:2px;}
-.st-stat-val{font-family:'Outfit',sans-serif;font-size:32px;font-weight:900;color:var(--ac);line-height:1;}
-.st-stat-lbl{font-size:12px;color:var(--mu);font-family:'JetBrains Mono',monospace;}
+.st-card:hover {
+  border-color: var(--ac);
+  transform: translate(-4px, -4px);
+  box-shadow: 5px 5px 0 var(--ba);
+}
+.st-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.st-icon-box {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--bw);
+  border-radius: 6px;
+  background: var(--sf2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.st-icon-box svg {
+  width: 20px;
+  height: 20px;
+  color: var(--ac);
+}
+.st-badge-verified {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  color: #ffffff;
+  background: #0f9f90;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.st-card-title {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+  color: var(--tx);
+  margin-bottom: 10px;
+}
+.st-card-desc {
+  font-size: 13.5px;
+  color: var(--tx2);
+  line-height: 1.55;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.st-card-footer {
+  border-top: 1px solid var(--bw);
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ac);
+  transition: var(--tr);
+}
+.st-card-footer svg {
+  width: 14px;
+  height: 14px;
+  color: var(--ac);
+}
 
-/* Stats Right Column (Certifications) */
-.st-right{display:flex;flex-direction:column;gap:14px;}
-.st-cert-card{border:1px solid var(--bw);border-radius:2px;padding:22px;background:var(--sf);transition:var(--tr);}
-.st-cert-card:hover{border-color:var(--ac);transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--ba);}
-.st-cert-org{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--ac);letter-spacing:.1em;margin-bottom:8px;text-transform:uppercase;}
-.st-cert-title{font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:10px;letter-spacing:-.015em;}
-.st-cert-meta{display:flex;flex-wrap:wrap;gap:6px;}
-.st-cert-pill{padding:3px 8px;border:1px solid var(--bw);border-radius:2px;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--mu);}
+@media(max-width: 992px) {
+  .st-card {
+    flex: 1 1 calc(50% - 24px);
+    max-width: 100%;
+  }
+}
+@media(max-width: 600px) {
+  .st-card {
+    flex: 1 1 100%;
+  }
+}
 
 /* ═══════════════════════════════════════════════════
    PROJECTS SHOWCASE
@@ -411,13 +550,11 @@ html[data-theme="light"] .cmd-box{background:#fff;}
   </div>
 </div>
 
-<!-- MOBILE MENU -->
 <div id="n-mob">
   <a href="#about">About</a>
   <a href="#skills">Skills</a>
   <a href="#stats">Stats</a>
   <a href="#projects">Projects</a>
-  <a href="#activity">Timeline</a>
   <a href="#contact">Contact</a>
 </div>
 
@@ -430,7 +567,6 @@ html[data-theme="light"] .cmd-box{background:#fff;}
       <a href="#skills">Skills</a>
       <a href="#stats">Stats</a>
       <a href="#projects">Projects</a>
-      <a href="#activity">Timeline</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-acts">
@@ -471,7 +607,7 @@ html[data-theme="light"] .cmd-box{background:#fff;}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>
             View My Work
           </a>
-          <a href="#" class="btn btn-o" title="Resume coming soon">
+          <a href="./resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-o">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Get Resume
           </a>
@@ -514,38 +650,84 @@ html[data-theme="light"] .cmd-box{background:#fff;}
       <span class="sh-n">01</span>
       <div class="sh-ln"></div>
       <h2 class="sh-t">Academic Journey</h2>
-      <p class="sh-r">Educational background, scholar achievements, and credentials.</p>
+      <p class="sh-r">My engineering degree path, scores, and scholastic accomplishments.</p>
     </div>
-    <div class="ab-grid">
-      <!-- Bio Block -->
-      <div class="ab-bio-blk rv d1">
-        <p class="ab-bio">I'm a <strong>full stack developer and machine learning enthusiast</strong> pursuing B.Tech in Computer Science Engineering at Nirma University (2024–2028).</p>
-        <p class="ab-bio">Deep focus on core CS fundamentals, competitive programming, and shipping full-stack products end to end — currently exploring <strong>agentic AI systems and deep learning</strong>.</p>
-        <div class="ab-hl">🏆 Proud holder of the <strong>2× Academic Excellence Scholar Certificate</strong> at Nirma University.</div>
-        <div class="ab-extra-card">
-          <div class="ab-extra-title">HSC — GSEB Science (Mauni Ankur School, Surat)</div>
-          <div class="ab-extra-sub">Graduated: June 2024 · Score: 93% · GUJCET: 111.5 / 120</div>
+
+    <!-- Education Detail Cards -->
+    <div class="edu-cards-grid rv d1">
+
+      <!-- B.Tech Block -->
+      <div class="edu-card">
+        <div class="edu-card-header">
+          <h3 class="edu-card-title">Bachelor of Technology</h3>
+          <span class="edu-cgpa-badge">8.42/10</span>
+        </div>
+        <div class="edu-meta">
+          <span class="edu-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>
+            Nirma University
+          </span>
+          <span class="edu-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Ahmedabad, Gujarat
+          </span>
+          <span class="edu-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            2024 – 2028
+          </span>
+        </div>
+        <div class="edu-subject">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Computer Science &amp; Engineering
+        </div>
+        <ul class="edu-bullets">
+          <li>2-Time Scholar Certificate holder for academic excellence</li>
+          <li>Deep focus on Core CS Fundamentals &amp; Advanced Software Engineering</li>
+        </ul>
+        <div class="edu-cw-title">Relevant Coursework</div>
+        <div class="edu-cw-grid">
+          <div class="edu-cw-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Data Structures &amp; Algorithms</div>
+          <div class="edu-cw-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Operating Systems</div>
+          <div class="edu-cw-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Database Management Systems</div>
+          <div class="edu-cw-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Computer Networks</div>
+          <div class="edu-cw-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Object-Oriented Programming</div>
+          <div class="edu-cw-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Artificial Intelligence &amp; ML</div>
+          <div class="edu-cw-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Software Engineering</div>
+          <div class="edu-cw-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Java Programming</div>
+          <div class="edu-cw-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>C Programming</div>
+          <div class="edu-cw-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Computer Architecture</div>
         </div>
       </div>
-      <!-- Timeline Cards -->
-      <div class="ab-timeline rv d2">
-        <div class="ab-ed-it">
-          <div class="ab-ed-dot"></div>
-          <div class="ab-ed-body">
-            <div class="ab-ed-t">B.Tech — Computer Science Engineering</div>
-            <div class="ab-ed-s">Nirma University, Ahmedabad · CGPA 8.42</div>
-          </div>
-          <div class="ab-ed-yr">2024–2028</div>
+
+      <!-- HSC Block -->
+      <div class="edu-card">
+        <div class="edu-card-header">
+          <h3 class="edu-card-title">Higher Secondary Certificate (HSC)</h3>
         </div>
-        <div class="ab-ed-it">
-          <div class="ab-ed-dot"></div>
-          <div class="ab-ed-body">
-            <div class="ab-ed-t">HSC — GSEB Science</div>
-            <div class="ab-ed-s">Mauni Ankur School of Science, Surat · 93%</div>
-          </div>
-          <div class="ab-ed-yr">2024</div>
+        <div class="edu-meta">
+          <span class="edu-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>
+            Mauni Ankur School of Science
+          </span>
+          <span class="edu-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Surat, Gujarat
+          </span>
+          <span class="edu-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Completed 2024
+          </span>
         </div>
+        <div class="edu-subject">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          GSEB Science (A-Group)
+        </div>
+        <ul class="edu-bullets">
+          <li>Academic score: 86.46%</li>
+          <li>GUJCET Score: 110 / 120</li>
+        </ul>
       </div>
+
     </div>
   </div>
 </section>
@@ -555,16 +737,19 @@ html[data-theme="light"] .cmd-box{background:#fff;}
 ═══════════════════════════════════════════════════ -->
 <section id="skills">
   <div class="container">
-    <div class="sh rv">
-      <span class="sh-n">02</span>
-      <div class="sh-ln"></div>
-      <h2 class="sh-t">Skills Matrix</h2>
-      <p class="sh-r">Technologies across the full stack and intelligent agent orchestration.</p>
+    <div class="sh-center rv">
+      <div class="sh-badge"><span class="sh-badge-icon">🛠️</span> Skills Matrix</div>
+      <h2 class="sh-title-large">Tech Stack</h2>
+      <p class="sh-subtitle-desc">Languages, frameworks, databases, and engineering tools I build with.</p>
     </div>
     <div class="sk-grid rv d1">
       
+      <!-- Programming Languages -->
       <div class="sk-card">
-        <h3 class="sk-card-title"><div class="sk-card-dot"></div>Programming Languages</h3>
+        <h3 class="sk-card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg>
+          Programming Languages
+        </h3>
         <div class="sk-card-pills">
           <span class="tag">C</span>
           <span class="tag">C++</span>
@@ -574,35 +759,66 @@ html[data-theme="light"] .cmd-box{background:#fff;}
         </div>
       </div>
 
+      <!-- Web Technologies -->
       <div class="sk-card">
-        <h3 class="sk-card-title"><div class="sk-card-dot"></div>Web Technologies</h3>
+        <h3 class="sk-card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Web Technologies
+        </h3>
         <div class="sk-card-pills">
           <span class="tag">HTML5</span>
           <span class="tag">CSS3</span>
-          <span class="tag">React</span>
+          <span class="tag">React.js</span>
+          <span class="tag">Tailwind CSS</span>
           <span class="tag">Node.js</span>
+          <span class="tag">Express.js</span>
+          <span class="tag">FastAPI</span>
         </div>
       </div>
 
+      <!-- Database Systems -->
       <div class="sk-card">
-        <h3 class="sk-card-title"><div class="sk-card-dot"></div>AI / ML &amp; Advanced Systems</h3>
+        <h3 class="sk-card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+          Database Systems
+        </h3>
+        <div class="sk-card-pills">
+          <span class="tag">MongoDB</span>
+          <span class="tag">SQL</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">DBMS</span>
+        </div>
+      </div>
+
+      <!-- Tools & Technologies -->
+      <div class="sk-card">
+        <h3 class="sk-card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Tools &amp; Technologies
+        </h3>
+        <div class="sk-card-pills">
+          <span class="tag">Git</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Competitive Programming</span>
+          <span class="tag">DSA</span>
+          <span class="tag">Software Engineering</span>
+        </div>
+      </div>
+
+      <!-- AI / ML & Advanced Systems -->
+      <div class="sk-card" style="grid-column: span 2;">
+        <h3 class="sk-card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1 0-3.12 3 3 0 0 1 0-4.88 2.5 2.5 0 0 1 0-3.12A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 0-3.12 3 3 0 0 0 0-4.88 2.5 2.5 0 0 0 0-3.12A2.5 2.5 0 0 0 14.5 2Z"/></svg>
+          AI / ML &amp; Advanced Systems
+        </h3>
         <div class="sk-card-pills">
           <span class="tag a">Agentic AI</span>
           <span class="tag a">Deep Learning</span>
           <span class="tag a">Machine Learning</span>
           <span class="tag a">LLMs</span>
           <span class="tag a">MCP Protocol</span>
-        </div>
-      </div>
-
-      <div class="sk-card">
-        <h3 class="sk-card-title"><div class="sk-card-dot"></div>Databases, Tools &amp; Practices</h3>
-        <div class="sk-card-pills">
-          <span class="tag">SQL</span>
-          <span class="tag">DBMS</span>
-          <span class="tag r">Competitive Programming</span>
-          <span class="tag r">DSA</span>
-          <span class="tag r">Software Engineering</span>
         </div>
       </div>
 
@@ -615,58 +831,74 @@ html[data-theme="light"] .cmd-box{background:#fff;}
 ═══════════════════════════════════════════════════ -->
 <section id="stats">
   <div class="container">
-    <div class="sh rv">
-      <span class="sh-n">03</span>
-      <div class="sh-ln"></div>
-      <h2 class="sh-t">Coding Profile &amp; Certs</h2>
-      <p class="sh-r">Credentials, certifications, and real-time algorithmic coding profiles.</p>
+    <div class="sh-center rv">
+      <div class="sh-badge"><span class="sh-badge-icon">📊</span> Professional Stats</div>
+      <h2 class="sh-title-large">Coding Profiles &amp; Credentials</h2>
+      <p class="sh-subtitle-desc">My algorithmic rankings, competitive programming levels, and certified technical achievements.</p>
     </div>
-    <div class="st-grid">
-      <!-- Coding Stats Column -->
-      <div class="st-left rv d1">
-        <div class="st-profile-card">
-          <span class="st-card-badge">Verified Profile</span>
-          <h3 class="st-profile-title">LeetCode Profile</h3>
-          <div class="st-profile-grid">
-            <div class="st-stat-box">
-              <span class="st-stat-val">Meet_r</span>
-              <span class="st-stat-lbl">Username</span>
-            </div>
-            <div class="st-stat-box">
-              <span class="st-stat-val">Knight</span>
-              <span class="st-stat-lbl">Rank badge</span>
-            </div>
-            <div class="st-stat-box">
-              <span class="st-stat-val">1800+</span>
-              <span class="st-stat-lbl">Rating</span>
-            </div>
+    <div class="st-grid rv d1">
+      
+      <!-- LeetCode Knight -->
+      <div class="st-card">
+        <div class="st-card-header">
+          <div class="st-icon-box">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.48 2.5 6.6 9.6a3.2 3.2 0 0 0 0 4.5l4.9 4.9a3.2 3.2 0 0 0 4.5 0l2.1-2.1a1.2 1.2 0 0 0-1.7-1.7l-2.1 2.1a.8.8 0 0 1-1.1 0l-4.9-4.9a.8.8 0 0 1 0-1.1l6.88-7.1a1.2 1.2 0 1 0-1.7-1.7zM10.4 14.1h9.4a1.2 1.2 0 1 0 0-2.4h-9.4a1.2 1.2 0 1 0 0 2.4z"/></svg>
           </div>
-          <div style="margin-top:18px;">
-            <a href="https://leetcode.com/u/Meet_rupareliya/" target="_blank" rel="noopener noreferrer" class="btn btn-p" style="padding:8px 14px;font-size:11px;">View LeetCode Profile</a>
+          <span class="st-badge-verified">Verified</span>
+        </div>
+        <h3 class="st-card-title">LeetCode Knight</h3>
+        <p class="st-card-desc">Achieved the prestigious Knight badge on LeetCode, solving algorithmic problems under contest conditions.</p>
+        <a href="https://leetcode.com/u/Meet_rupareliya/" target="_blank" rel="noopener noreferrer" class="st-card-footer">
+          Global Rank 1800+ Rating Profile
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+
+      <!-- Agentic AI Certified -->
+      <div class="st-card">
+        <div class="st-card-header">
+          <div class="st-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
+          <span class="st-badge-verified">Verified</span>
+        </div>
+        <h3 class="st-card-title">Agentic AI Certified</h3>
+        <p class="st-card-desc">Completed the extensive Udemy AI Engineer Agentic Track on agents and MCP orchestration.</p>
+        <div class="st-card-footer">
+          Ed Donner · 21.5 hrs Certification
         </div>
       </div>
-      <!-- Certifications Column -->
-      <div class="st-right rv d2">
-        <div class="st-cert-card">
-          <div class="st-cert-org">Udemy</div>
-          <h3 class="st-cert-title">AI Engineer Agentic Track: The Complete Agent &amp; MCP Course</h3>
-          <div class="st-cert-meta">
-            <span class="st-cert-pill">Ed Donner</span>
-            <span class="st-cert-pill">21.5 hrs</span>
-            <span class="st-cert-pill">July 2026</span>
+
+      <!-- Machine Learning Certified -->
+      <div class="st-card">
+        <div class="st-card-header">
+          <div class="st-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg>
           </div>
+          <span class="st-badge-verified">Verified</span>
         </div>
-        <div class="st-cert-card">
-          <div class="st-cert-org">Stanford × DeepLearning.AI</div>
-          <h3 class="st-cert-title">Machine Learning Specialization</h3>
-          <div class="st-cert-meta">
-            <span class="st-cert-pill">Andrew Ng</span>
-            <span class="st-cert-pill">3 Courses</span>
-            <span class="st-cert-pill">2026</span>
-          </div>
+        <h3 class="st-card-title">Machine Learning Certified</h3>
+        <p class="st-card-desc">Completed professional Andrew Ng's Machine Learning Specialization training.</p>
+        <div class="st-card-footer">
+          Stanford &amp; DeepLearning.AI Specialization
         </div>
       </div>
+
+      <!-- Double Scholar Certificate -->
+      <div class="st-card">
+        <div class="st-card-header">
+          <div class="st-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <span class="st-badge-verified">Verified</span>
+        </div>
+        <h3 class="st-card-title">Double Scholar Certificate</h3>
+        <p class="st-card-desc">Recipient of Nirma University Scholar Certificates for outstanding academic performance.</p>
+        <div class="st-card-footer">
+          Awarded twice for academic GPA performance.
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -677,7 +909,7 @@ html[data-theme="light"] .cmd-box{background:#fff;}
 <section id="projects">
   <div class="container">
     <div class="sh rv">
-      <span class="sh-n">04</span>
+      <span class="sh-n">03</span>
       <div class="sh-ln"></div>
       <h2 class="sh-t">Featured Work</h2>
       <p class="sh-r">Selected work spanning web development, algorithms, and AI engineering.</p>
@@ -705,7 +937,7 @@ html[data-theme="light"] .cmd-box{background:#fff;}
         <div class="pc2-body">
           <h3 class="pc2-name">MazeLab</h3>
           <p class="pc2-desc">Maze generator + pathfinding visualizer. Watch BFS, DFS, and A* graph search algorithms run step-by-step in real time on a procedurally generated grid.</p>
-          <div class="pc2-tags"><span class="tag">JavaScript</span><span class="tag r">Algorithms</span><span class="tag r">DSA</span></div>
+          <div class="pc2-tags"><span class="tag">JavaScript</span><span class="tag">Algorithms</span><span class="tag">DSA</span></div>
           <div class="pc2-acts">
             <a href="https://mazelab.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live Demo</a>
             <a href="https://github.com/meet-rupareliya" target="_blank" rel="noopener noreferrer" class="btn btn-g"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.5 0 12.3c0 5.44 3.44 10.05 8.21 11.68.6.11.82-.27.82-.6 0-.29-.01-1.06-.02-2.08-3.34.75-4.04-1.65-4.04-1.65-.55-1.42-1.34-1.81-1.34-1.81-1.1-.77.08-.75.08-.75 1.21.09 1.85 1.27 1.85 1.27 1.08 1.9 2.83 1.35 3.52 1.03.11-.8.42-1.35.77-1.66-2.67-.31-5.47-1.37-5.47-6.1 0-1.35.47-2.45 1.24-3.31-.12-.31-.54-1.57.12-3.27 0 0 1.01-.33 3.3 1.27.96-.27 1.98-.41 3-.41 1.02 0 2.04.14 3 .41 2.29-1.6 3.3-1.27 3.3-1.27.66 1.7.24 2.96.12 3.27.77.86 1.24 1.96 1.24 3.31 0 4.74-2.81 5.78-5.49 6.09.43.38.81 1.14.81 2.3 0 1.66-.02 3-.02 3.41 0 .33.22.72.83.6C20.57 22.34 24 17.74 24 12.3 24 5.5 18.63 0 12 0z"/></svg>GitHub</a>
@@ -729,7 +961,7 @@ html[data-theme="light"] .cmd-box{background:#fff;}
         <div class="pc2-body">
           <h3 class="pc2-name">Deep Research Agent</h3>
           <p class="pc2-desc">Autonomous agent that plans, searches &amp; synthesizes answers to complex queries — built on agentic AI + MCP protocol with an iterative refinement pipeline.</p>
-          <div class="pc2-tags"><span class="tag r">Agentic AI</span><span class="tag r">LLMs</span><span class="tag">Automation</span><span class="tag a">MCP</span></div>
+          <div class="pc2-tags"><span class="tag a">Agentic AI</span><span class="tag a">LLMs</span><span class="tag">Automation</span><span class="tag a">MCP</span></div>
           <div class="pc2-acts">
             <a href="https://deep-search-agent-six.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Live Demo</a>
             <a href="https://github.com/meet-rupareliya" target="_blank" rel="noopener noreferrer" class="btn btn-g"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.5 0 12.3c0 5.44 3.44 10.05 8.21 11.68.6.11.82-.27.82-.6 0-.29-.01-1.06-.02-2.08-3.34.75-4.04-1.65-4.04-1.65-.55-1.42-1.34-1.81-1.34-1.81-1.1-.77.08-.75.08-.75 1.21.09 1.85 1.27 1.85 1.27 1.08 1.9 2.83 1.35 3.52 1.03.11-.8.42-1.35.77-1.66-2.67-.31-5.47-1.37-5.47-6.1 0-1.35.47-2.45 1.24-3.31-.12-.31-.54-1.57.12-3.27 0 0 1.01-.33 3.3 1.27.96-.27 1.98-.41 3-.41 1.02 0 2.04.14 3 .41 2.29-1.6 3.3-1.27 3.3-1.27.66 1.7.24 2.96.12 3.27.77.86 1.24 1.96 1.24 3.31 0 4.74-2.81 5.78-5.49 6.09.43.38.81 1.14.81 2.3 0 1.66-.02 3-.02 3.41 0 .33.22.72.83.6C20.57 22.34 24 17.74 24 12.3 24 5.5 18.63 0 12 0z"/></svg>GitHub</a>
@@ -741,61 +973,6 @@ html[data-theme="light"] .cmd-box{background:#fff;}
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════
-     TIMELINE
-═══════════════════════════════════════════════════ -->
-<section id="activity">
-  <div class="container">
-    <div class="sh rv">
-      <span class="sh-n">05</span>
-      <div class="sh-ln"></div>
-      <h2 class="sh-t">Milestones</h2>
-      <p class="sh-r">Key dates and accomplishments along the journey.</p>
-    </div>
-    <div class="tl-wrap">
-      <div class="tl-it rv d1">
-        <div class="tl-n">01</div>
-        <div class="tl-body">
-          <div class="tl-dt">July 2026</div>
-          <div class="tl-tt">🎓 Completed ML Specialization</div>
-          <p class="tl-ds">Finished the Machine Learning Specialization by Andrew Ng (Stanford × DeepLearning.AI) — covering supervised learning, unsupervised learning, and reinforcement learning.</p>
-        </div>
-      </div>
-      <div class="tl-it rv d2">
-        <div class="tl-n">02</div>
-        <div class="tl-body">
-          <div class="tl-dt">July 2026</div>
-          <div class="tl-tt">🤖 Completed AI Engineer Agentic Track</div>
-          <p class="tl-ds">Finished the 21.5-hour Agentic AI course on Udemy covering autonomous agents, tool use, MCP protocol, and multi-agent orchestration.</p>
-        </div>
-      </div>
-      <div class="tl-it rv d3">
-        <div class="tl-n">03</div>
-        <div class="tl-body">
-          <div class="tl-dt">2024 – Present</div>
-          <div class="tl-tt">🏆 2× Academic Excellence Scholar Certificate</div>
-          <p class="tl-ds">Awarded the Academic Excellence Scholar Certificate twice at Nirma University for outstanding academic performance across semesters.</p>
-        </div>
-      </div>
-      <div class="tl-it rv d4">
-        <div class="tl-n">04</div>
-        <div class="tl-body">
-          <div class="tl-dt">July 2024</div>
-          <div class="tl-tt">🚀 Started B.Tech CSE @ Nirma University</div>
-          <p class="tl-ds">Began B.Tech in Computer Science Engineering. Currently maintaining CGPA 8.42 with deep focus on DSA, competitive programming, and AI systems.</p>
-        </div>
-      </div>
-      <div class="tl-it rv d5">
-        <div class="tl-n">05</div>
-        <div class="tl-body">
-          <div class="tl-dt">June 2024</div>
-          <div class="tl-tt">📚 Completed HSC — GSEB Science</div>
-          <p class="tl-ds">Scored 93% in GSEB Science at Mauni Ankur School of Science, Surat. Secured 111.5/120 in GUJCET.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ═══════════════════════════════════════════════════
      CONTACT
@@ -803,7 +980,7 @@ html[data-theme="light"] .cmd-box{background:#fff;}
 <section id="contact">
   <div class="container">
     <div class="sh rv">
-      <span class="sh-n">06</span>
+      <span class="sh-n">04</span>
       <div class="sh-ln"></div>
       <h2 class="sh-t">Contact</h2>
     </div>
@@ -970,12 +1147,51 @@ document.getElementById('c-form').addEventListener('submit',function(e){
   const btn=document.getElementById('fsb-btn'),toast=document.getElementById('ftoa3');
   btn.disabled=true;
   btn.innerHTML='<svg style="animation:spin 1s linear infinite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Sending…';
-  setTimeout(()=>{
-    toast.classList.add('sh');btn.innerHTML='✓ Sent!';
-    btn.style.cssText='background:rgba(74,222,128,.1);border-color:rgba(74,222,128,.4);color:#4ADE80;';
+
+  const data = {
+    name: document.getElementById('cf-n').value,
+    email: document.getElementById('cf-e').value,
+    message: document.getElementById('cf-m').value
+  };
+
+  fetch('https://formsubmit.co/ajax/meetrupareliya919@gmail.com', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+    toast.classList.add('sh');
+    toast.textContent = '✓ Message sent! I\'ll get back to you soon.';
+    toast.style.cssText = 'color:#4ADE80; border-color:rgba(74,222,128,.3); background:rgba(74,222,128,.08); opacity:1; transform:translateY(0);';
+    btn.innerHTML = '✓ Sent!';
+    btn.style.cssText = 'background:rgba(74,222,128,.1);border-color:rgba(74,222,128,.4);color:#4ADE80;';
     this.reset();
-    setTimeout(()=>{toast.classList.remove('sh');btn.disabled=false;btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg> Send Message';btn.style.cssText='';},4000);
-  },1200);
+    setTimeout(()=>{
+      toast.classList.remove('sh');
+      toast.style.cssText = '';
+      btn.disabled = false;
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg> Send Message';
+      btn.style.cssText = '';
+    },4000);
+  })
+  .catch(error => {
+    toast.classList.add('sh');
+    toast.textContent = '❌ Error sending message. Please try again.';
+    toast.style.cssText = 'color:#FF3E3E; border-color:rgba(255,62,62,.3); background:rgba(255,62,62,.08); opacity:1; transform:translateY(0);';
+    btn.innerHTML = 'Error';
+    btn.style.cssText = 'background:rgba(255,62,62,.1);border-color:rgba(255,62,62,.4);color:#FF3E3E;';
+    setTimeout(()=>{
+      toast.classList.remove('sh');
+      toast.style.cssText = '';
+      btn.disabled = false;
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg> Send Message';
+      btn.style.cssText = '';
+    },4000);
+  });
 });
 
 /* COMMAND PALETTE */
@@ -986,7 +1202,6 @@ const cmds=[
   {i:'⚡',t:'Skills',fn:()=>navTo('#skills')},
   {i:'📊',t:'Stats',fn:()=>navTo('#stats')},
   {i:'🚀',t:'Projects',fn:()=>navTo('#projects')},
-  {i:'📅',t:'Timeline',fn:()=>navTo('#activity')},
   {i:'✉️',t:'Contact',fn:()=>navTo('#contact')},
   {i:'💼',t:'LinkedIn',fn:()=>window.open('https://www.linkedin.com/in/meet-rupareliya-b3bb5a3b6','_blank')},
   {i:'🐙',t:'GitHub',fn:()=>window.open('https://github.com/meet-rupareliya','_blank')},
